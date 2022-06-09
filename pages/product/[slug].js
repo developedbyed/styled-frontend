@@ -3,7 +3,7 @@ import {
   ImageWrapper,
   ProductInfo,
   Quantity,
-  BuyStyles,
+  Buy,
 } from "../../styles/ProductDetails";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { GET_PRODUCT_QUERY } from "../../lib/query";
@@ -22,15 +22,13 @@ export default function ProductDetails() {
   if (fetching) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
   //Extract Data
-  const { title, description, image, slug } = data.products.data[0].attributes;
+  const { title, description, image } = data.products.data[0].attributes;
 
   return (
     <DetailsStyle>
-      <ImageWrapper>
-        <img src={image.data.attributes.formats.medium.url} alt={title} />
-      </ImageWrapper>
+      <img src={image.data.attributes.formats.medium.url} alt={title} />
       <ProductInfo>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <p>{description}</p>
         <Quantity>
           <span>Quantity</span>
@@ -42,9 +40,7 @@ export default function ProductDetails() {
             <AiFillPlusCircle />
           </button>
         </Quantity>
-        <BuyStyles>
-          <button>Add To Cart</button>
-        </BuyStyles>
+        <Buy>Add To Cart</Buy>
       </ProductInfo>
     </DetailsStyle>
   );
