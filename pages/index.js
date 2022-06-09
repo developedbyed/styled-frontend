@@ -1,6 +1,17 @@
 import Head from "next/head";
+import { PRODUCT_QUERY } from "../lib/query";
+import { useQuery } from "urql";
 
 export default function Home() {
+  //Fetch products from strapi
+  const [results] = useQuery({ query: PRODUCT_QUERY });
+  const { data, fetching, error } = results;
+
+  //Checks for the data coming in
+  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>Oh no... {error.message}</p>;
+  console.log(data);
+
   return (
     <div>
       <Head>
