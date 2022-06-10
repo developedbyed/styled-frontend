@@ -11,6 +11,12 @@ body {
   --secondary: #535353;
 }
 
+h1 {
+  font-size: 2rem;
+  color: var(--primary);
+  padding: 2rem 0rem;
+}
+
 h2 {
   font-size: 1.2rem;
   color: var(--primary);
