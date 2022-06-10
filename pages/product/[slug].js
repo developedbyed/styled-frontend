@@ -9,6 +9,7 @@ import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useQuery } from "urql";
 import { useRouter } from "next/router";
 import { useStateContext } from "../../lib/context";
+import toast from "react-hot-toast";
 
 export default function ProductDetails() {
   //Use state
@@ -26,6 +27,13 @@ export default function ProductDetails() {
   //Extract Data
   const { title, description, image } = data.products.data[0].attributes;
 
+  //Create Toast
+  const notify = () => {
+    toast.success(`${title} added to your cart.`, {
+      duration: 1500,
+    });
+  };
+
   return (
     <DetailsStyle>
       <img src={image.data.attributes.formats.medium.url} alt={title} />
@@ -42,7 +50,12 @@ export default function ProductDetails() {
             <AiFillPlusCircle onClick={increaseQty} />
           </button>
         </Quantity>
-        <Buy onClick={() => onAdd(data.products.data[0].attributes, qty)}>
+        <Buy
+          onClick={() => {
+            onAdd(data.products.data[0].attributes, qty);
+            notify();
+          }}
+        >
           Add To Cart
         </Buy>
       </ProductInfo>
