@@ -24,6 +24,7 @@ export default function Cart() {
       onClick={() => setShowCart(false)}
     >
       <CartStyle
+        layout
         initial={{ x: "50%" }}
         animate={{ x: 0 }}
         exit={{ x: "50%" }}
@@ -44,6 +45,7 @@ export default function Cart() {
           cartItems.map((item) => {
             return (
               <Card
+                layout
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1, transition: { delay: 0.4 } }}
                 key={item.slug}
@@ -66,7 +68,7 @@ export default function Cart() {
               </Card>
             );
           })}
-        <Checkout>
+        <Checkout layout>
           {cartItems.length >= 1 && (
             <div>
               <h3>Subtotal ${totalPrice}</h3>
