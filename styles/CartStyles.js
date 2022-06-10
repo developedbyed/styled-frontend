@@ -13,14 +13,12 @@ export const CartWrapper = styled.div`
 `;
 
 export const CartStyle = styled.div`
-  width: 40%;
+  width: 30%;
   background: #f1f1f1;
   padding: 2rem 5rem;
   overflow-y: scroll;
   position: relative;
 `;
-
-export const CartItemsStyle = styled.div``;
 
 export const Card = styled.div`
   display: flex;
