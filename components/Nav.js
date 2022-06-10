@@ -4,6 +4,7 @@ import { NavStyles, NavItems } from "../styles/NavStyles";
 import Cart from "./Cart";
 import { useStateContext } from "../lib/context";
 const { AnimatePresence, motion } = require("framer-motion");
+import User from "./User";
 
 export default function Nav() {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
@@ -12,6 +13,7 @@ export default function Nav() {
     <NavStyles>
       <Link href="/">Styled.</Link>
       <NavItems>
+        <User />
         <div onClick={() => setShowCart(true)}>
           {totalQuantities > 0 && (
             <motion.span animate={{ scale: 1 }} initial={{ scale: 0 }}>
