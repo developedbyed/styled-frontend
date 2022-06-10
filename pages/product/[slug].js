@@ -1,6 +1,5 @@
 import {
   DetailsStyle,
-  ImageWrapper,
   ProductInfo,
   Quantity,
   Buy,
