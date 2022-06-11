@@ -20,6 +20,7 @@
     "react-dom": "18.1.0",
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.4.0",
+    "react-loading-skeleton": "^3.1.0",
     "stripe": "^9.8.0",
     "styled-components": "^5.3.5",
     "urql": "^2.2.2"

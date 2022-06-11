@@ -11,7 +11,7 @@ export default function Product({ product }) {
           <img src={image.data.attributes.formats.small.url} alt={title} />
         </div>
       </Link>
-      <h2>{title}</h2>
+      <h2>{title} </h2>
       <h3>${price}</h3>
     </ProductStyles>
   );

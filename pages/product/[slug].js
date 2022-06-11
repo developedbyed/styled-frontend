@@ -10,10 +10,19 @@ import { useQuery } from "urql";
 import { useRouter } from "next/router";
 import { useStateContext } from "../../lib/context";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 export default function ProductDetails() {
   //Use state
-  const { increaseQty, decreaseQty, qty, onAdd } = useStateContext();
+  const { increaseQty, decreaseQty, qty, onAdd, setQty } = useStateContext();
+
+  const resetQuantity = () => {
+    setQty(1);
+  };
+  useEffect(() => {
+    resetQuantity();
+  }, []);
+
   //Fetch slug
   const { query } = useRouter();
   //Fetch Graphql data
